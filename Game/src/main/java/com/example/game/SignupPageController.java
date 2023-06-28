@@ -1,8 +1,8 @@
 package com.example.game;
 
+import controller.GameController;
 import controller.PlayerController;
-import exception.DuplicateUsername;
-import exception.InvalidInput;
+import exception.DuplicatePlayerID;
 import exception.InvalidPassword;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -108,6 +108,7 @@ public class SignupPageController implements Initializable {
                 playerController.checkPatternPassword(passwordField.getText());
                 Player newPlayer = new Player(playerIDField.getText(), passwordField.getText(), playerMapID);
                 playerController.insertPlayer(newPlayer);
+                GameController.players.add(newPlayer);
                 Alert successfully = new Alert(Alert.AlertType.INFORMATION, "You are registered!");
                 successfully.setTitle("Successfully!");
                 successfully.setHeaderText("Successfully!");
@@ -117,7 +118,7 @@ public class SignupPageController implements Initializable {
                 Scene scene = new Scene(parent);
                 stage.setScene(scene);
                 stage.show();
-            } catch (DuplicateUsername e) {
+            } catch (DuplicatePlayerID e) {
                 Alert error = new Alert(Alert.AlertType.ERROR, "Your ID is available!");
                 error.setTitle("Error!");
                 error.setHeaderText("Input error!");
