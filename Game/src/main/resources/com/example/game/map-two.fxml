@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="gameGround2" prefHeight="600.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.MapTwoPageController">
+   <children>
+      <ImageView fx:id="mapImage2" fitHeight="688.0" fitWidth="1010.0" layoutX="-9.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Map_Pirate_Scenery.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g2_castle1" fitHeight="76.0" fitWidth="76.0" layoutX="548.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/town_hall_9.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g2_castle3" fitHeight="98.0" fitWidth="76.0" layoutX="373.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/town_hall_9.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g2_castle4" fitHeight="76.0" fitWidth="76.0" layoutX="397.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/town_hall_9.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g2_castle2" fitHeight="76.0" fitWidth="76.0" layoutX="525.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/town_hall_9.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g2_defensive1" fitHeight="75.0" fitWidth="65.0" layoutX="661.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/town_hall_11.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g2_defensive2" fitHeight="75.0" fitWidth="65.0" layoutX="464.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/town_hall_11.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g2_defensive3" fitHeight="76.0" fitWidth="65.0" layoutX="258.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/town_hall_11.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g2_defensive4" fitHeight="76.0" fitWidth="65.0" layoutX="459.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/town_hall_11.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

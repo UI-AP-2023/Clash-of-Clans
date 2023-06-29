@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="gameGround3" prefHeight="600.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.MapThreePageController">
+   <children>
+      <ImageView fx:id="mapImage3" fitHeight="687.0" fitWidth="1095.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/OriginalInfernoTown_.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g3_bom3" fitHeight="74.0" fitWidth="69.0" layoutX="377.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/seeking_air_mine_3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g3_bom2" fitHeight="58.0" fitWidth="58.0" layoutX="565.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/seeking_air_mine_3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g3_bom1" fitHeight="69.0" fitWidth="69.0" layoutX="477.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/seeking_air_mine_3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g3_castle1" fitHeight="90.0" fitWidth="78.0" layoutX="477.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/town_hall_10.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g3_castle3" fitHeight="90.0" fitWidth="78.0" layoutX="457.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/town_hall_10.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g3_castle4" fitHeight="90.0" fitWidth="78.0" layoutX="299.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/town_hall_10.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="g3_castle2" fitHeight="90.0" fitWidth="78.0" layoutX="646.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/town_hall_10.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
