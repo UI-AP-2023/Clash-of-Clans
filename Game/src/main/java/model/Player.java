@@ -14,7 +14,17 @@ public class Player {
         this.playerID = playerID;
         this.password = password;
         this.playerLevel = setPlayerLevel();
-        this.playerMapID=playerMapID;
+        this.playerMapID = playerMapID;
+    }
+
+    //--------------------constructor for read database-----------------------------------------------------------------
+    public Player(String playerID, String password, int playerLevel, int numberOfWins, int numberOfLosses, int playerMapID) {
+        this.playerID = playerID;
+        this.password = password;
+        this.playerLevel = playerLevel;
+        this.numberOfWins = numberOfWins;
+        this.numberOfLosses = numberOfLosses;
+        this.playerMapID = playerMapID;
     }
 
     public String getPlayerID() {
@@ -38,10 +48,11 @@ public class Player {
     }
 
     private int setPlayerLevel() {
-        Random random=new Random();
-        this.playerLevel = random.nextInt(1,5);
+        Random random = new Random();
+        this.playerLevel = random.nextInt(1, 5);
         return this.playerLevel;
     }
+
     public int getPlayerMapID() {
         return playerMapID;
     }
@@ -65,15 +76,14 @@ public class Player {
     public void setNumberOfLosses(int numberOfLosses) {
         this.numberOfLosses = numberOfLosses;
     }
+
     @Override
     public String toString() {
-        return "Player{" +
-                "playerID='" + playerID + '\'' +
-                ", password='" + password + '\'' +
-                ", playerLevel=" + playerLevel +
-                ", numberOfWins=" + numberOfWins +
-                ", numberOfLosses=" + numberOfLosses +
-                '}';
+        return  "PlayerID = " + playerID + "\n" + "\n"+
+                "Password = " + password + "\n" + "\n"+
+                "PlayerLevel = " + playerLevel +"\n" + "\n"+
+                "NumberOfWins = " + numberOfWins +"\n" + "\n"+
+                "NumberOfLosses = " + numberOfLosses ;
     }
 
 }

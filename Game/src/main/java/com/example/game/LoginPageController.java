@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Player;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -23,6 +24,7 @@ import java.util.Objects;
 
 public class LoginPageController {
     private final PlayerController playerController = new PlayerController();
+    public static Player loginPlayer;
     @FXML
     private Button loginButton;
 
@@ -45,6 +47,7 @@ public class LoginPageController {
     void loginButton(MouseEvent event) {
             try {
                 playerController.checkLoginInformation(playerIDField.getText(), passwordField.getText());
+                loginPlayer=playerController.findPlayer(playerIDField.getText());
                 Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("player-page.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setTitle("Home");
