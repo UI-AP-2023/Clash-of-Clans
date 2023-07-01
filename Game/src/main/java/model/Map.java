@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class Map {
 
-    public ArrayList<Building> getBuildings() {
-        return buildings;
+    public Map(ArrayList<Building> buildings, int numberOfHeroes) {
+        this.buildings = buildings;
+        this.numberOfHeroes = numberOfHeroes;
     }
-
     public void setBuildings(ArrayList<Building> buildings) {
         this.buildings = buildings;
     }
@@ -22,14 +22,12 @@ public class Map {
         this.numberOfHeroes = numberOfHeroes;
     }
 
-    private ArrayList<Building> buildings;
-    private int numberOfHeroes;
-
-    public Map(ArrayList<Building> buildings, int numberOfHeroes) {
-        this.buildings = buildings;
-        this.numberOfHeroes = numberOfHeroes;
+    public ArrayList<Building> getBuildings() {
+        return buildings;
     }
 
+    private ArrayList<Building> buildings;
+    private int numberOfHeroes;
     @Override
     public String toString() {
         return "Map{" +

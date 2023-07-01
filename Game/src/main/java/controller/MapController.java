@@ -46,7 +46,7 @@ public class MapController {
     }
 
     public void addBuildingsToMap() {
-        Map map = new Map(buildings_g1, 12);
+        Map map = new Map(buildings_g1, 15);
         GameController.listOfMaps.put(1, map);
     }
     //--------------------Map two---------------------------------------------------------------------------------------
@@ -77,7 +77,7 @@ public class MapController {
     }
 
     public void addBuildingsToMap2() {
-        Map map = new Map(buildings_g2, 10);
+        Map map = new Map(buildings_g2, 12);
         GameController.listOfMaps.put(2, map);
     }
     //--------------------Map three-------------------------------------------------------------------------------------
@@ -139,7 +139,7 @@ public class MapController {
     }
 
     public void addBuildingsToMap4() {
-        Map map = new Map(buildings_g4, 12);
+        Map map = new Map(buildings_g4, 10);
         GameController.listOfMaps.put(4, map);
     }
 }
