@@ -1,17 +1,21 @@
 package Hero;
 
+
 import javafx.scene.image.ImageView;
 
-abstract public class Hero extends ImageView {
+
+abstract public class Hero extends ImageView{
     private int speed;
     private int power;
     private int health;
+    private ImageView heroImage;
 
     public Hero(int speed, int power, int health) {
         this.speed = speed;
         this.power = power;
         this.health = health;
     }
+
 
     public int getSpeed() {
         return speed;
@@ -36,6 +40,10 @@ abstract public class Hero extends ImageView {
     public void setHealth(int health) {
         this.health = health;
     }
+
+    public ImageView getHeroImage() {return heroImage;}
+
+    public void setHeroImage(ImageView heroImage) {this.heroImage = heroImage;}
 
     @Override
     public String toString() {
