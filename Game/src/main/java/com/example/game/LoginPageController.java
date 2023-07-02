@@ -45,9 +45,17 @@ public class LoginPageController {
 
     @FXML
     void loginButton(MouseEvent event) {
+        if (Objects.equals(playerIDField.getText(), "") || Objects.equals(passwordField.getText(), ""))
+        {
+            Alert error = new Alert(Alert.AlertType.ERROR, "Enter your Information!");
+            error.setTitle("Error!");
+            error.setHeaderText("Input error!");
+            error.show();
+        }
+        else {
             try {
                 playerController.checkLoginInformation(playerIDField.getText(), passwordField.getText());
-                loginPlayer=playerController.findPlayer(playerIDField.getText());
+                loginPlayer = playerController.findPlayer(playerIDField.getText());
                 Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("player-page.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setTitle("Home");
@@ -67,6 +75,7 @@ public class LoginPageController {
                 error.setHeaderText("Input error!");
                 error.show();
             }
+        }
     }
 
     @FXML
