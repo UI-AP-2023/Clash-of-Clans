@@ -1,9 +1,13 @@
 package model;
 
+import Hero.Hero;
+import javafx.geometry.Bounds;
+import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
-abstract public class Building {
+abstract public class Building extends ImageView {
     private ImageView imageView;
     private double layoutX;
     private double layoutY;
@@ -19,6 +23,14 @@ abstract public class Building {
         this.health = health;
         this.power = power;
     }
+
+    public Building(){}
+
+    public boolean isAlive() {
+        return getHealth() >= 0;
+    }
+
+    public abstract void attack(Hero hero);
 
     public BuildingType getBuildingType() {
         return buildingType;
@@ -52,16 +64,8 @@ abstract public class Building {
         this.imageView = imageView;
     }
 
-    public double getLayoutX() {
-        return layoutX;
-    }
-
     public void setLayoutX(int layoutX) {
         this.layoutX = layoutX;
-    }
-
-    public double getLayoutY() {
-        return layoutY;
     }
 
     public void setLayoutY(int layoutY) {
