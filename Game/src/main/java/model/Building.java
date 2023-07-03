@@ -14,6 +14,7 @@ abstract public class Building extends ImageView {
     private BuildingType buildingType;
     private int health;
     private int power;
+    private ImageView arrow;
 
     public Building(ImageView imageView,double x, double y, BuildingType buildingType, int health, int power) {
         this.imageView = imageView;
@@ -25,6 +26,14 @@ abstract public class Building extends ImageView {
     }
 
     public Building(){}
+
+    public ImageView getArrow() {
+        return arrow;
+    }
+
+    public void setArrow(ImageView arrow) {
+        this.arrow = arrow;
+    }
 
     public boolean isAlive() {
         return getHealth() >= 0;

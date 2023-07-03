@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 
 public class CommonBuilding_g1 extends Building {
     public CommonBuilding_g1(ImageView imageView, double x, double y) {
-        super(imageView,x, y, BuildingType.COMMON, 50, 0);
+        super(imageView,x, y, BuildingType.COMMON, 100, 0);
 
         //setImageView(new ImageView(new Image(String.valueOf(HelloApplication.class.getResource("images/town_hall_16.png")))));
     }

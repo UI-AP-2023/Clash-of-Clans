@@ -6,9 +6,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class DefensiveBuilding_g2 extends Building {
-    public DefensiveBuilding_g2(ImageView imageView, double x, double y) {
-        super(imageView, x, y, BuildingType.DEFENSIVE, 120, 20);
+    public DefensiveBuilding_g2(ImageView imageView, double x, double y,ImageView arrow) {
+        super(imageView, x, y, BuildingType.DEFENSIVE, 100, 20);
         //setImageView(new ImageView(new Image(String.valueOf(HelloApplication.class.getResource("images/town_hall_11.png")))));
+        setArrow(arrow);
     }
 
     @Override

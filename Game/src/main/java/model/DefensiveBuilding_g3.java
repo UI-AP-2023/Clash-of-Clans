@@ -6,9 +6,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class DefensiveBuilding_g3 extends Building{
-    public DefensiveBuilding_g3(ImageView imageView, double x, double y) {
-        super(imageView, x, y, BuildingType.DEFENSIVE, 500, 100);
+    public DefensiveBuilding_g3(ImageView imageView, double x, double y,ImageView arrow) {
+        super(imageView, x, y, BuildingType.DEFENSIVE, 80, 20);
         //setImageView(new ImageView(new Image(String.valueOf(HelloApplication.class.getResource("images/seeking_air_mine_3.png")))));
+        setArrow(arrow);
     }
 
     @Override
