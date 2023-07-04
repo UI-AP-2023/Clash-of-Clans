@@ -1,8 +1,6 @@
 package model;
 
 import Hero.Hero;
-import com.example.game.HelloApplication;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class DefensiveBuilding_g1 extends Building {
