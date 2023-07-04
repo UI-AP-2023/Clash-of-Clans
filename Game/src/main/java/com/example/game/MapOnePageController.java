@@ -99,6 +99,18 @@ public class MapOnePageController implements Initializable {
     @FXML
     private Pane menuBarPane;
 
+    @FXML
+    private ImageView bom1;
+
+    @FXML
+    private ImageView bom11;
+
+    @FXML
+    private ImageView bom12;
+
+    @FXML
+    private ImageView bom13;
+
     //------------------------------------------------------------------------------------------------------------------
     private ImageView imageView1;
     private ImageView imageView2;
@@ -107,6 +119,7 @@ public class MapOnePageController implements Initializable {
     private ImageView imageView5;
     private ImageView arrow;
     private ImageView bom;
+    private ImageView smoke;
     private int archer;
     private int barbarian;
     private int balloon;
@@ -146,7 +159,7 @@ public class MapOnePageController implements Initializable {
     void archerImage(MouseEvent event) {
         if (counter1 < archer) {
             imageView1 = new ImageView(new Image(this.getClass().getResource("images/58eeb0c0ee9418469d17edf1.png").toString()));
-            arrow=new ImageView(new Image((this.getClass().getResource("images/arrow2.png").toString())));
+            arrow = new ImageView(new Image((this.getClass().getResource("images/arrow2.png").toString())));
             imageView1.setLayoutX(851);
             imageView1.setLayoutY(138);
             imageView1.setFitWidth(archerImage.getFitWidth());
@@ -156,7 +169,7 @@ public class MapOnePageController implements Initializable {
             arrow.setVisible(false);
             gameGround1.getChildren().add(imageView1);
             gameGround1.getChildren().add(arrow);
-            Archer archer = new Archer(imageView1,arrow);
+            Archer archer = new Archer(imageView1, arrow);
             DraggableMarker.makeDraggable(imageView1, archer, exitedHeroes);
             counter1++;
         }
@@ -204,7 +217,7 @@ public class MapOnePageController implements Initializable {
     void dragonImage(MouseEvent event) {
         if (counter4 < dragon) {
             imageView4 = new ImageView(new Image(this.getClass().getResource("images/infoScreen_dragon.png").toString()));
-            arrow=new ImageView(new Image((this.getClass().getResource("images/flame-fire-clip-art-flame-transparent-png-clip-art-image-d1dfa52a023e5c1c118abbe1bb626704.png").toString())));
+            arrow = new ImageView(new Image((this.getClass().getResource("images/flame-fire-clip-art-flame-transparent-png-clip-art-image-d1dfa52a023e5c1c118abbe1bb626704.png").toString())));
             imageView4.setLayoutX(851);
             imageView4.setLayoutY(271);
             imageView4.setFitWidth(dragonImage.getFitWidth());
@@ -214,7 +227,7 @@ public class MapOnePageController implements Initializable {
             arrow.setVisible(false);
             gameGround1.getChildren().add(imageView4);
             gameGround1.getChildren().add(arrow);
-            Dragon dragon = new Dragon(imageView4,arrow);
+            Dragon dragon = new Dragon(imageView4, arrow);
             DraggableMarker.makeDraggable(imageView4, dragon, exitedHeroes);
             counter4++;
         }
@@ -248,10 +261,51 @@ public class MapOnePageController implements Initializable {
         stage.show();
     }
 
+    void setBom() {
+        if (g1_defensive2.isVisible()) {
+            bom1.setVisible(true);
+            TranslateTransition transition11 = new TranslateTransition();
+            transition11.setDuration(Duration.millis(2000));
+            transition11.setNode(bom1);
+            transition11.setToX(481);
+            transition11.setToY(-211);
+            transition11.setCycleCount(5);
+            transition11.play();
+
+            bom11.setVisible(true);
+            TranslateTransition transition12 = new TranslateTransition();
+            transition12.setDuration(Duration.millis(2000));
+            transition12.setNode(bom11);
+            transition12.setToX(-411);
+            transition12.setToY(-267);
+            transition12.setCycleCount(5);
+            transition12.play();
+
+            bom12.setVisible(true);
+            TranslateTransition transition13 = new TranslateTransition();
+            transition13.setDuration(Duration.millis(2000));
+            transition13.setNode(bom12);
+            transition13.setToX(-485);
+            transition13.setToY(342);
+            transition13.setCycleCount(5);
+            transition13.play();
+
+            bom13.setVisible(true);
+            TranslateTransition transition14 = new TranslateTransition();
+            transition14.setDuration(Duration.millis(2000));
+            transition14.setNode(bom13);
+            transition14.setToX(556);
+            transition14.setToY(267);
+            transition14.setCycleCount(5);
+            transition14.play();
+
+        }
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        bom=new ImageView(new Image(this.getClass().getResource("images/machupicchu-imports-s-a-c-explosion-bomb-pyrotechnics-euclidean-vector-vector-explosion-f2ea07fc28b0d7dde4808833e2711374.png").toString()));
+        bom = new ImageView(new Image(this.getClass().getResource("images/machupicchu-imports-s-a-c-explosion-bomb-pyrotechnics-euclidean-vector-vector-explosion-f2ea07fc28b0d7dde4808833e2711374.png").toString()));
         if (LoginPageController.loginPlayer.getPlayerLevel() >= 1 && LoginPageController.loginPlayer.getPlayerLevel() <= 3) {
 
             g1_castle1.setVisible(true);
@@ -293,33 +347,50 @@ public class MapOnePageController implements Initializable {
             mapController.addCommonBuilding_g1(g1_castle5);
             mapController.addCommonBuilding_g1(g1_castle6);
 
-            mapController.addDefensiveBuilding_g1(g1_defensive1,bom);
-            mapController.addDefensiveBuilding_g1(g1_defensive2,bom);
-            mapController.addDefensiveBuilding_g1(g1_defensive3,bom);
+            mapController.addDefensiveBuilding_g1(g1_defensive1, bom);
+            mapController.addDefensiveBuilding_g1(g1_defensive2, bom);
+            mapController.addDefensiveBuilding_g1(g1_defensive3, bom);
 
-            System.out.println(g1_castle1.getLayoutX());
-            System.out.println(g1_castle2.getLayoutY());
-
-            // gameGround1.getChildren().addAll(MapController.buildings_g1);
         }
+        setBom();
 
         Timeline t = new Timeline();
         t.setCycleCount(Timeline.INDEFINITE);
-        t.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
+        t.getKeyFrames().add(new KeyFrame(Duration.seconds(2),
                 (ActionEvent e) -> {
                     if (MapController.buildings_g1.size() != 0) {
                         for (Hero h : exitedHeroes) {
                             if (h instanceof Archer) {
                                 if (!h.isAttacking() && h.isWalking()) {
-                                    gameController.shoot(gameGround1, h, MapController.buildings_g1,1);
+                                    gameController.shoot(gameGround1, h, MapController.buildings_g1, 1);
                                 }
 
                             } else if (h instanceof Dragon) {
-                                gameController.fire(gameGround1, h, MapController.buildings_g1,1);
+                                gameController.fire(gameGround1, h, MapController.buildings_g1, 1);
                             } else {
                                 if (!h.isAttacking() && h.isWalking()) {
                                     try {
-                                        gameController.walk(gameGround1, h, MapController.buildings_g1,1);
+                                        gameController.walk(gameGround1, h, MapController.buildings_g1, 1);
+                                    } catch (InterruptedException ex) {
+                                        ex.printStackTrace();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (MapController.buildings_g1.size() != 0) {
+                        for (Hero h : exitedHeroes) {
+                            if (h instanceof Archer) {
+                                if (!h.isAttacking() && h.isWalking()) {
+                                    gameController.shoot(gameGround1, h, MapController.buildings_g1, 1);
+                                }
+
+                            } else if (h instanceof Dragon) {
+                                gameController.fire(gameGround1, h, MapController.buildings_g1, 1);
+                            } else {
+                                if (!h.isAttacking() && h.isWalking()) {
+                                    try {
+                                        gameController.walk(gameGround1, h, MapController.buildings_g1, 1);
                                     } catch (InterruptedException ex) {
                                         ex.printStackTrace();
                                     }
@@ -333,14 +404,13 @@ public class MapOnePageController implements Initializable {
 
         Timeline t2 = new Timeline();
         t2.setCycleCount(Timeline.INDEFINITE);
-        t2.getKeyFrames().add(new KeyFrame(Duration.seconds(1.5),
+        t2.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
                 (ActionEvent e) -> {
-                    if (MapController.buildings_g1.size()==0)
-                    {
+                    if (MapController.buildings_g1.size() == 0) {
                         t.stop();
                         System.out.println("win");
                         //gameGround1.getScene().getWindow().hide();
-                        mapImage1.setOnMouseClicked(event->{
+                        mapImage1.setOnMouseClicked(event -> {
                             Parent parent = null;
                             try {
                                 parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("win-page.fxml")));
@@ -351,16 +421,16 @@ public class MapOnePageController implements Initializable {
                             stage.setTitle("WinPage");
                             Scene scene = new Scene(parent);
                             stage.setScene(scene);
-                            stage.show();});
+                            stage.show();
+                        });
                         t2.pause();
 
 
                     }
-                    if (PlayerPageController.entryHeroes==0)
-                    {
+                    if (PlayerPageController.entryHeroes == 0) {
                         t.stop();
                         System.out.println("lose");
-                        mapImage1.setOnMouseClicked(event->{
+                        mapImage1.setOnMouseClicked(event -> {
                             Parent parent = null;
                             try {
                                 parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("loss-page.fxml")));
@@ -371,13 +441,13 @@ public class MapOnePageController implements Initializable {
                             stage.setTitle("LossPage");
                             Scene scene = new Scene(parent);
                             stage.setScene(scene);
-                            stage.show();});
+                            stage.show();
+                        });
                         t2.pause();
                     }
                 }
         ));
         t2.play();
-
 
 
     }

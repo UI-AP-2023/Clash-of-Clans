@@ -35,8 +35,11 @@ public class LossPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            gameController.updateWins((PlayerPageController.opponentPlayer.getNumberOfWins()+1),PlayerPageController.opponentPlayer.getPlayerID());
             gameController.updateLosses((LoginPageController.loginPlayer.getNumberOfLosses()+1),LoginPageController.loginPlayer.getPlayerID());
+            LoginPageController.loginPlayer.setNumberOfLosses(LoginPageController.loginPlayer.getNumberOfLosses()+1);
+            gameController.updateWins((PlayerPageController.opponentPlayer.getNumberOfWins()+1),PlayerPageController.opponentPlayer.getPlayerID());
+            PlayerPageController.opponentPlayer.setNumberOfWins(PlayerPageController.opponentPlayer.getNumberOfWins()+1);
+
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
