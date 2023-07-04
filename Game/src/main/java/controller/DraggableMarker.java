@@ -1,13 +1,17 @@
 package controller;
 
+import Hero.Hero;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
+
+import java.util.ArrayList;
 
 public class DraggableMarker {
     public static double mouseAnchorX;
     public static double mouseAnchorY;
 
-    public static void makeDraggable(Node node, TranslateTransition transition) {
+    public static void makeDraggable(Node node, Hero hero, ArrayList<Hero> heroes) {
         node.setOnMousePressed(mouseEvent ->
         {
             mouseAnchorX = mouseEvent.getX();
@@ -20,9 +24,11 @@ public class DraggableMarker {
             node.setLayoutY(mouseEvent.getSceneY() - mouseAnchorY);
 
         });
-        node.setOnMouseReleased(e->
+        node.setOnMouseReleased(e ->
         {
-            transition.play();
+            heroes.add(hero);
+
         });
+
     }
 }
