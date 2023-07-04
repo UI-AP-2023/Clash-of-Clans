@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.PlayerPageController">
+   <children>
+      <ImageView fitHeight="614.0" fitWidth="1083.0" layoutX="-54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/clash-of-clans-clash-royale-clash-of-kings-game-tencent-clash-of-clans-b871ef77938e0653b7a4359b57f9099d.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="menuPane" layoutX="-1.0" prefHeight="70.0" prefWidth="757.0" style="-fx-background-color: #d97314;">
+         <children>
+            <Button fx:id="profileButton" layoutX="12.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#profileButton" prefHeight="61.0" prefWidth="216.0" style="-fx-background-color: #d97314;" text="Profile" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="attackButton" layoutX="522.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#attackButton" prefHeight="61.0" prefWidth="216.0" style="-fx-background-color: #d97314;" text="Attack" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="heroesButton" layoutX="256.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#heroesButton" prefHeight="61.0" prefWidth="216.0" style="-fx-background-color: #d97314;" text="Heros" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="profilePane" layoutX="31.0" layoutY="91.0" prefHeight="498.0" prefWidth="630.0" visible="false">
+         <children>
+            <ImageView fx:id="playerMapImage" fitHeight="135.0" fitWidth="192.0" layoutX="363.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Label fx:id="informationLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="62.0" prefHeight="361.0" prefWidth="254.0" style="-fx-background-color: #eab485; -fx-background-radius: 20;" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Britannic Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="399.0" layoutY="266.0" prefHeight="45.0" prefWidth="127.0" text="Your Map" textAlignment="CENTER" textFill="#d97314">
+               <font>
+                  <Font name="Britannic Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="heroPane" layoutX="31.0" layoutY="91.0" prefHeight="498.0" prefWidth="630.0" style="-fx-background-color: #eab485; -fx-background-radius: 50;" visible="false">
+         <children>
+            <ImageView fitHeight="110.0" fitWidth="103.0" layoutX="263.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/58eeb0c0ee9418469d17edf1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="125.0" fitWidth="166.0" layoutX="449.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/infoScreen_barbarian1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="125.0" fitWidth="120.0" layoutX="353.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/infoScreen_dragon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="103.0" fitWidth="103.0" layoutX="48.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/clash-of-clans-clash-royale-troop-golem-game-coc-f17fc20b1485aa19bb6ac453b6b04e98.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="134.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/infoScreen_balloon.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="53.0" layoutY="136.0" prefHeight="120.0" prefWidth="95.0" text="Valkyrie&#10;Power:20&#10;Health:100&#10;Speed:5&#10;Level3" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="375.0" layoutY="358.0" prefHeight="120.0" prefWidth="90.0" text="Dragon&#10;Power:100&#10;Health:200&#10;Speed:1&#10;Level4" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="483.0" layoutY="137.0" prefHeight="120.0" prefWidth="82.0" text="Barbarian&#10;Power:10&#10;Health:50&#10;Speed:2&#10;Level1" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="264.0" layoutY="136.0" prefHeight="120.0" prefWidth="95.0" text="Archer&#10;Power:20&#10;Health:100&#10;Speed:3&#10;Level2" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="154.0" layoutY="365.0" prefHeight="120.0" prefWidth="103.0" text="Balloon&#10;Power:200&#10;Health:100&#10;Speed:1&#10;Level5" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="backImage" fitHeight="61.0" fitWidth="55.0" layoutX="959.0" layoutY="537.0" onMouseClicked="#backImage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/340.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="attackPane" layoutX="31.0" layoutY="91.0" prefHeight="498.0" prefWidth="630.0" style="-fx-background-color: #e4b480; -fx-background-radius: 20;" visible="false">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="148.0" layoutY="24.0" prefHeight="46.0" prefWidth="334.0" text="Choose your desired attack field" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="19.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="mapImage" fitHeight="199.0" fitWidth="261.0" layoutX="185.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Label fx:id="numberOfHeroesLabel" alignment="CENTER" layoutX="228.0" layoutY="296.0" prefHeight="55.0" prefWidth="174.0" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="rejectButton" layoutX="332.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#rejectButton" prefHeight="35.0" prefWidth="55.0" style="-fx-background-color: #000000; -fx-background-radius: 50;" text="Reject" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="acceptButton" layoutX="246.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#acceptButton" prefHeight="35.0" prefWidth="55.0" style="-fx-background-color: #000000; -fx-background-radius: 50;" text="Accept" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="playerIDLabel" alignment="CENTER" layoutX="252.0" layoutY="332.0" prefHeight="55.0" prefWidth="127.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="chooseHeroPane" layoutX="31.0" layoutY="91.0" prefHeight="498.0" prefWidth="630.0" style="-fx-background-color: #e4b480; -fx-background-radius: 20;" visible="false">
+         <children>
+            <ImageView fx:id="archerImage" fitHeight="110.0" fitWidth="90.0" layoutX="143.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/58eeb0c0ee9418469d17edf1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="barbarianImage" fitHeight="110.0" fitWidth="138.0" layoutX="34.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/infoScreen_barbarian1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="balloonImage" fitHeight="106.0" fitWidth="103.0" layoutX="507.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/infoScreen_balloon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="valkyrieImage" fitHeight="90.0" fitWidth="90.0" layoutX="269.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/clash-of-clans-clash-royale-troop-golem-game-coc-f17fc20b1485aa19bb6ac453b6b04e98.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="dragonImage" fitHeight="114.0" fitWidth="120.0" layoutX="384.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/infoScreen_dragon.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="barbarianNumField" alignment="CENTER" layoutX="58.0" layoutY="250.0" prefHeight="35.0" prefWidth="44.0" />
+            <TextField fx:id="balloonNumField" alignment="CENTER" layoutX="546.0" layoutY="250.0" prefHeight="35.0" prefWidth="44.0" visible="false" />
+            <TextField fx:id="dragonNumField" alignment="CENTER" layoutX="424.0" layoutY="250.0" prefHeight="35.0" prefWidth="44.0" visible="false" />
+            <TextField fx:id="valkyrieNumField" alignment="CENTER" layoutX="307.0" layoutY="250.0" prefHeight="35.0" prefWidth="44.0" visible="false" />
+            <TextField fx:id="archerNumField" alignment="CENTER" layoutX="171.0" layoutY="250.0" prefHeight="35.0" prefWidth="44.0" visible="false" />
+            <ImageView fx:id="archerLockImage" fitHeight="35.0" fitWidth="44.0" layoutX="169.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@images/Lock.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="balloonLockImage" fitHeight="35.0" fitWidth="44.0" layoutX="551.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@images/Lock.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="dragonLockImage" fitHeight="35.0" fitWidth="44.0" layoutX="426.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@images/Lock.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="valkyrieLockImage" fitHeight="35.0" fitWidth="44.0" layoutX="300.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@images/Lock.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="143.0" layoutY="49.0" prefHeight="35.0" prefWidth="366.0" text="Enter number of hero " textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <Line endX="123.4000244140625" layoutX="326.0" layoutY="84.0" startX="-135.8000030517578" strokeWidth="2.0" />
+            <Button fx:id="playButton" layoutX="273.0" layoutY="421.0" mnemonicParsing="false" onMouseClicked="#playButton" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #000000; -fx-background-radius: 50;" text="Play" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
