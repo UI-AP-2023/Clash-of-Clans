@@ -6,7 +6,7 @@
 
 <AnchorPane fx:id="startPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.StartPageController">
    <children>
-      <ImageView fx:id="startImage" fitHeight="703.0" fitWidth="1206.0" layoutX="-187.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="startImage" fitHeight="606.0" fitWidth="1249.0" layoutX="-209.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/clash-of-clans-f88iyeweabo3r6kz.jpg" />
          </image>

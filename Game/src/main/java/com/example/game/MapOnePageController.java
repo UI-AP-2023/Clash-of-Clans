@@ -100,16 +100,13 @@ public class MapOnePageController implements Initializable {
     private Pane menuBarPane;
 
     @FXML
-    private ImageView bom1;
+    private ImageView smoke1;
 
     @FXML
-    private ImageView bom11;
+    private ImageView smoke11;
 
     @FXML
-    private ImageView bom12;
-
-    @FXML
-    private ImageView bom13;
+    private ImageView smoke12;
 
     //------------------------------------------------------------------------------------------------------------------
     private ImageView imageView1;
@@ -252,7 +249,6 @@ public class MapOnePageController implements Initializable {
 
     @FXML
     void logoutImage(MouseEvent event) throws IOException {
-        //gameGround1.getScene().getWindow().hide();
         Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("player-page.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Home");
@@ -262,43 +258,38 @@ public class MapOnePageController implements Initializable {
     }
 
     void setBom() {
-        if (g1_defensive2.isVisible()) {
-            bom1.setVisible(true);
+        if (g1_defensive1.isVisible()) {
+            smoke1.setVisible(true);
             TranslateTransition transition11 = new TranslateTransition();
-            transition11.setDuration(Duration.millis(2000));
-            transition11.setNode(bom1);
-            transition11.setToX(481);
-            transition11.setToY(-211);
-            transition11.setCycleCount(5);
+            transition11.setDuration(Duration.millis(1000));
+            transition11.setNode(smoke1);
+            transition11.setToY(-10);
+            transition11.setCycleCount(10);
             transition11.play();
-
-            bom11.setVisible(true);
+        } else if (!g1_defensive1.isVisible()) {
+            smoke1.setVisible(false);
+        }
+        if (g1_defensive3.isVisible()) {
+            smoke11.setVisible(true);
             TranslateTransition transition12 = new TranslateTransition();
-            transition12.setDuration(Duration.millis(2000));
-            transition12.setNode(bom11);
-            transition12.setToX(-411);
-            transition12.setToY(-267);
-            transition12.setCycleCount(5);
+            transition12.setDuration(Duration.millis(1000));
+            transition12.setNode(smoke11);
+            transition12.setToY(-10);
+            transition12.setCycleCount(10);
             transition12.play();
-
-            bom12.setVisible(true);
+        } else if (!g1_defensive3.isVisible()) {
+            smoke11.setVisible(false);
+        }
+        if (g1_defensive2.isVisible()) {
+            smoke12.setVisible(true);
             TranslateTransition transition13 = new TranslateTransition();
-            transition13.setDuration(Duration.millis(2000));
-            transition13.setNode(bom12);
-            transition13.setToX(-485);
-            transition13.setToY(342);
-            transition13.setCycleCount(5);
+            transition13.setDuration(Duration.millis(1000));
+            transition13.setNode(smoke12);
+            transition13.setToY(-10);
+            transition13.setCycleCount(10);
             transition13.play();
-
-            bom13.setVisible(true);
-            TranslateTransition transition14 = new TranslateTransition();
-            transition14.setDuration(Duration.millis(2000));
-            transition14.setNode(bom13);
-            transition14.setToX(556);
-            transition14.setToY(267);
-            transition14.setCycleCount(5);
-            transition14.play();
-
+        } else if (!g1_defensive2.isVisible()) {
+            smoke12.setVisible(false);
         }
 
     }
@@ -352,33 +343,14 @@ public class MapOnePageController implements Initializable {
             mapController.addDefensiveBuilding_g1(g1_defensive3, bom);
 
         }
-        setBom();
 
         Timeline t = new Timeline();
         t.setCycleCount(Timeline.INDEFINITE);
         t.getKeyFrames().add(new KeyFrame(Duration.seconds(2),
                 (ActionEvent e) -> {
+                    setBom();
                     if (MapController.buildings_g1.size() != 0) {
-                        for (Hero h : exitedHeroes) {
-                            if (h instanceof Archer) {
-                                if (!h.isAttacking() && h.isWalking()) {
-                                    gameController.shoot(gameGround1, h, MapController.buildings_g1, 1);
-                                }
 
-                            } else if (h instanceof Dragon) {
-                                gameController.fire(gameGround1, h, MapController.buildings_g1, 1);
-                            } else {
-                                if (!h.isAttacking() && h.isWalking()) {
-                                    try {
-                                        gameController.walk(gameGround1, h, MapController.buildings_g1, 1);
-                                    } catch (InterruptedException ex) {
-                                        ex.printStackTrace();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (MapController.buildings_g1.size() != 0) {
                         for (Hero h : exitedHeroes) {
                             if (h instanceof Archer) {
                                 if (!h.isAttacking() && h.isWalking()) {
@@ -404,12 +376,11 @@ public class MapOnePageController implements Initializable {
 
         Timeline t2 = new Timeline();
         t2.setCycleCount(Timeline.INDEFINITE);
-        t2.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
+        t2.getKeyFrames().add(new KeyFrame(Duration.seconds(2),
                 (ActionEvent e) -> {
                     if (MapController.buildings_g1.size() == 0) {
                         t.stop();
                         System.out.println("win");
-                        //gameGround1.getScene().getWindow().hide();
                         mapImage1.setOnMouseClicked(event -> {
                             Parent parent = null;
                             try {
@@ -430,6 +401,7 @@ public class MapOnePageController implements Initializable {
                     if (PlayerPageController.entryHeroes == 0) {
                         t.stop();
                         System.out.println("lose");
+
                         mapImage1.setOnMouseClicked(event -> {
                             Parent parent = null;
                             try {
@@ -448,8 +420,6 @@ public class MapOnePageController implements Initializable {
                 }
         ));
         t2.play();
-
-
     }
 
 }
