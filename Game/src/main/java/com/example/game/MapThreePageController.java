@@ -11,6 +11,7 @@ import controller.GameController;
 import controller.MapController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -81,6 +82,19 @@ public class MapThreePageController implements Initializable {
 
     @FXML
     private Pane menuBarPane;
+
+    @FXML
+    private ImageView bom1;
+
+    @FXML
+    private ImageView bom11;
+
+    @FXML
+    private ImageView bom12;
+
+    @FXML
+    private ImageView bom13;
+
     //------------------------------------------------------------------------------------------------------------------
     private final MapController mapController = new MapController();
     private final GameController gameController=new GameController();
@@ -229,7 +243,49 @@ public class MapThreePageController implements Initializable {
         stage.show();
     }
 
-    @Override
+    void setBom() {
+        if (g3_bom1.isVisible()) {
+            bom1.setVisible(true);
+            TranslateTransition transition11 = new TranslateTransition();
+            transition11.setDuration(Duration.millis(2000));
+            transition11.setNode(bom1);
+            transition11.setToX(481);
+            transition11.setToY(-211);
+            transition11.setCycleCount(5);
+            transition11.play();
+
+            bom11.setVisible(true);
+            TranslateTransition transition12 = new TranslateTransition();
+            transition12.setDuration(Duration.millis(2000));
+            transition12.setNode(bom11);
+            transition12.setToX(-411);
+            transition12.setToY(-267);
+            transition12.setCycleCount(5);
+            transition12.play();
+
+            bom12.setVisible(true);
+            TranslateTransition transition13 = new TranslateTransition();
+            transition13.setDuration(Duration.millis(2000));
+            transition13.setNode(bom12);
+            transition13.setToX(-485);
+            transition13.setToY(342);
+            transition13.setCycleCount(5);
+            transition13.play();
+
+            bom13.setVisible(true);
+            TranslateTransition transition14 = new TranslateTransition();
+            transition14.setDuration(Duration.millis(2000));
+            transition14.setNode(bom13);
+            transition14.setToX(556);
+            transition14.setToY(267);
+            transition14.setCycleCount(5);
+            transition14.play();
+
+        }
+    }
+
+
+        @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bom=new ImageView(new Image(this.getClass().getResource("images/machupicchu-imports-s-a-c-explosion-bomb-pyrotechnics-euclidean-vector-vector-explosion-f2ea07fc28b0d7dde4808833e2711374.png").toString()));
 
@@ -272,7 +328,7 @@ public class MapThreePageController implements Initializable {
             mapController.addDefensiveBuilding_g3(g3_bom2,bom);
             mapController.addDefensiveBuilding_g3(g3_bom3,bom);
         }
-
+        setBom();
         Timeline t3 = new Timeline();
         t3.setCycleCount(Timeline.INDEFINITE);
         t3.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
@@ -297,6 +353,7 @@ public class MapThreePageController implements Initializable {
                             }
                         }
                     }
+
                 }
         ));
         t3.play();

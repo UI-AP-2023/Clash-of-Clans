@@ -159,22 +159,22 @@ public class PlayerPageController implements Initializable {
         if (opponentPlayer.getPlayerMapID()==1)
         {
             mapImage.setImage(new Image(this.getClass().getResource("images/map11.jpg").toString()));
-            numberOfHeroesLabel.setText("Number of Heroes:15");
+            numberOfHeroesLabel.setText("Number of Heroes:8");
         }
         else if (opponentPlayer.getPlayerMapID()==2)
         {
             mapImage.setImage(new Image(this.getClass().getResource("images/map22.jpg").toString()));
-            numberOfHeroesLabel.setText("Number of Heroes:12");
+            numberOfHeroesLabel.setText("Number of Heroes:6");
         }
         else if (opponentPlayer.getPlayerMapID()==3)
         {
             mapImage.setImage(new Image(this.getClass().getResource("images/map33.jpg").toString()));
-            numberOfHeroesLabel.setText("Number of Heroes:10");
+            numberOfHeroesLabel.setText("Number of Heroes:5");
         }
         else if (opponentPlayer.getPlayerMapID()==4)
         {
             mapImage.setImage(new Image(this.getClass().getResource("images/map44.jpg").toString()));
-            numberOfHeroesLabel.setText("Number of Heroes:10");
+            numberOfHeroesLabel.setText("Number of Heroes:5");
         }
         playerIDLabel.setText(opponentPlayer.getPlayerID());
 
@@ -244,16 +244,16 @@ public class PlayerPageController implements Initializable {
     private boolean calculateNumberOfHeroes(int mapID) {
         int totalHeroes = 1;
         if (mapID == 1) {
-            totalHeroes = 15;
+            totalHeroes = 8;
             checkNumberOfField();
         } else if (mapID == 2) {
-            totalHeroes = 12;
+            totalHeroes = 6;
             checkNumberOfField();
         } else if (mapID == 3) {
-            totalHeroes = 10;
+            totalHeroes = 5;
             checkNumberOfField();
         } else if (mapID == 4) {
-            totalHeroes = 10;
+            totalHeroes = 5;
             checkNumberOfField();
         }
 
