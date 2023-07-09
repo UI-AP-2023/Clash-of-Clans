@@ -23,7 +23,6 @@ public class MapController {
 //----------------------------Map one-----------------------------------------------------------------------------------
     public static final ArrayList<Building> buildings_g1 = new ArrayList<>();
     public final ArrayList<Hero> exitedHeroes=new ArrayList<>();
-    public ImageView arrow;
 
 
     public void addCommonBuilding_g1(ImageView im1) {
@@ -32,15 +31,18 @@ public class MapController {
         addBuildingsToMap();
     }
 
-    public void addDefensiveBuilding_g1(ImageView im1,ImageView arrow) {
-        DefensiveBuilding_g1 d1 = new DefensiveBuilding_g1(im1, im1.getLayoutX(), im1.getLayoutY(), arrow);
-        buildings_g1.add(d1);
-        addBuildingsToMap();
-        System.out.println("m:"+d1.getImageView().getLayoutX());
+    public void addDefensiveBuilding_g1(ImageView im1,ImageView smoke) {
+        Thread thread=new Thread(()->{
+            DefensiveBuilding_g1 d1 = new DefensiveBuilding_g1(im1, im1.getLayoutX(), im1.getLayoutY(), smoke);
+            buildings_g1.add(d1);
+            addBuildingsToMap();
+            System.out.println("m:"+d1.getImageView().getLayoutX());
+        });
+        thread.start();
     }
 
     public void addBuildingsToMap() {
-        Map map = new Map(buildings_g1, 15);
+        Map map = new Map(buildings_g1, 8);
         GameController.listOfMaps.put(1, map);
     }
     //--------------------Map two---------------------------------------------------------------------------------------
@@ -60,7 +62,7 @@ public class MapController {
     }
 
     public void addBuildingsToMap2() {
-        Map map = new Map(buildings_g2, 12);
+        Map map = new Map(buildings_g2, 6);
         GameController.listOfMaps.put(2, map);
     }
     //--------------------Map three-------------------------------------------------------------------------------------
@@ -82,7 +84,7 @@ public class MapController {
     }
 
     public void addBuildingsToMap3() {
-        Map map = new Map(buildings_g3, 10);
+        Map map = new Map(buildings_g3, 5);
         GameController.listOfMaps.put(3, map);
     }
     //--------------------Map four--------------------------------------------------------------------------------------
@@ -102,7 +104,7 @@ public class MapController {
     }
 
     public void addBuildingsToMap4() {
-        Map map = new Map(buildings_g4, 10);
+        Map map = new Map(buildings_g4, 5);
         GameController.listOfMaps.put(4, map);
     }
 
