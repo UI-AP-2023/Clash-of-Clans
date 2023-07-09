@@ -115,7 +115,6 @@ public class MapOnePageController implements Initializable {
     private ImageView imageView4;
     private ImageView imageView5;
     private ImageView arrow;
-    private ImageView bom;
     private ImageView smoke;
     private int archer;
     private int barbarian;
@@ -264,7 +263,7 @@ public class MapOnePageController implements Initializable {
             transition11.setDuration(Duration.millis(1000));
             transition11.setNode(smoke1);
             transition11.setToY(-10);
-            transition11.setCycleCount(10);
+            transition11.setCycleCount(1);
             transition11.play();
         } else if (!g1_defensive1.isVisible()) {
             smoke1.setVisible(false);
@@ -275,7 +274,7 @@ public class MapOnePageController implements Initializable {
             transition12.setDuration(Duration.millis(1000));
             transition12.setNode(smoke11);
             transition12.setToY(-10);
-            transition12.setCycleCount(10);
+            transition12.setCycleCount(1);
             transition12.play();
         } else if (!g1_defensive3.isVisible()) {
             smoke11.setVisible(false);
@@ -286,7 +285,7 @@ public class MapOnePageController implements Initializable {
             transition13.setDuration(Duration.millis(1000));
             transition13.setNode(smoke12);
             transition13.setToY(-10);
-            transition13.setCycleCount(10);
+            transition13.setCycleCount(1);
             transition13.play();
         } else if (!g1_defensive2.isVisible()) {
             smoke12.setVisible(false);
@@ -296,7 +295,7 @@ public class MapOnePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        bom = new ImageView(new Image(this.getClass().getResource("images/machupicchu-imports-s-a-c-explosion-bomb-pyrotechnics-euclidean-vector-vector-explosion-f2ea07fc28b0d7dde4808833e2711374.png").toString()));
+        smoke = new ImageView(new Image(this.getClass().getResource("images/smoke-clip-art-black-fume-png-clip-art-image-12a8e78b3278d04765b917cab1ff1858.png").toString()));
         if (LoginPageController.loginPlayer.getPlayerLevel() >= 1 && LoginPageController.loginPlayer.getPlayerLevel() <= 3) {
 
             g1_castle1.setVisible(true);
@@ -338,17 +337,25 @@ public class MapOnePageController implements Initializable {
             mapController.addCommonBuilding_g1(g1_castle5);
             mapController.addCommonBuilding_g1(g1_castle6);
 
-            mapController.addDefensiveBuilding_g1(g1_defensive1, bom);
-            mapController.addDefensiveBuilding_g1(g1_defensive2, bom);
-            mapController.addDefensiveBuilding_g1(g1_defensive3, bom);
+            mapController.addDefensiveBuilding_g1(g1_defensive1, smoke);
+            mapController.addDefensiveBuilding_g1(g1_defensive2, smoke);
+            mapController.addDefensiveBuilding_g1(g1_defensive3, smoke);
 
         }
 
         Timeline t = new Timeline();
         t.setCycleCount(Timeline.INDEFINITE);
-        t.getKeyFrames().add(new KeyFrame(Duration.seconds(2),
+        t.getKeyFrames().add(new KeyFrame(Duration.seconds(0.3),
                 (ActionEvent e) -> {
                     setBom();
+                }
+        ));
+        t.play();
+
+        Timeline t1 = new Timeline();
+        t1.setCycleCount(Timeline.INDEFINITE);
+        t1.getKeyFrames().add(new KeyFrame(Duration.seconds(2),
+                (ActionEvent e) -> {
                     if (MapController.buildings_g1.size() != 0) {
 
                         for (Hero h : exitedHeroes) {
@@ -372,7 +379,7 @@ public class MapOnePageController implements Initializable {
                     }
                 }
         ));
-        t.play();
+        t1.play();
 
         Timeline t2 = new Timeline();
         t2.setCycleCount(Timeline.INDEFINITE);
