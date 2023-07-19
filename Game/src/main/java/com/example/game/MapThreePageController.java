@@ -95,9 +95,14 @@ public class MapThreePageController implements Initializable {
     @FXML
     private ImageView bom13;
 
+    @FXML
+    private Pane winPane;
+
+    @FXML
+    private Pane losePane;
     //------------------------------------------------------------------------------------------------------------------
     private final MapController mapController = new MapController();
-    private final GameController gameController=new GameController();
+    private final GameController gameController = new GameController();
     public static ArrayList<Hero> exitedHeroes3 = new ArrayList<>();
 
 
@@ -145,7 +150,7 @@ public class MapThreePageController implements Initializable {
     void archerImage(MouseEvent event) {
         if (counter1 < archer) {
             imageView1 = new ImageView(new Image(this.getClass().getResource("images/58eeb0c0ee9418469d17edf1.png").toString()));
-            arrow=new ImageView(new Image((this.getClass().getResource("images/arrow2.png").toString())));
+            arrow = new ImageView(new Image((this.getClass().getResource("images/arrow2.png").toString())));
             imageView1.setLayoutX(851);
             imageView1.setLayoutY(138);
             imageView1.setFitWidth(archerImage.getFitWidth());
@@ -155,7 +160,7 @@ public class MapThreePageController implements Initializable {
             arrow.setVisible(false);
             gameGround3.getChildren().add(imageView1);
             gameGround3.getChildren().add(arrow);
-            Archer archer = new Archer(imageView1,arrow);
+            Archer archer = new Archer(imageView1, arrow);
             DraggableMarker.makeDraggable(imageView1, archer, exitedHeroes3);
             counter1++;
         }
@@ -172,8 +177,8 @@ public class MapThreePageController implements Initializable {
             imageView3.setFitWidth(balloonImage.getFitWidth());
             imageView3.setFitHeight(balloonImage.getFitHeight());
             gameGround3.getChildren().add(imageView3);
-            Balloon balloon=new Balloon(imageView3);
-            DraggableMarker.makeDraggable(imageView3,balloon,exitedHeroes3);
+            Balloon balloon = new Balloon(imageView3);
+            DraggableMarker.makeDraggable(imageView3, balloon, exitedHeroes3);
             counter2++;
         }
     }
@@ -182,15 +187,15 @@ public class MapThreePageController implements Initializable {
 
     @FXML
     void barbarianImage(MouseEvent event) {
-        if(counter3 < barbarian) {
+        if (counter3 < barbarian) {
             imageView2 = new ImageView(new Image(this.getClass().getResource("images/infoScreen_barbarian1.png").toString()));
             imageView2.setLayoutX(851);
             imageView2.setLayoutY(76);
             imageView2.setFitWidth(barbarianImage.getFitWidth());
             imageView2.setFitHeight(barbarianImage.getFitHeight());
             gameGround3.getChildren().add(imageView2);
-            Barbarian barbarian=new Barbarian(imageView2);
-            DraggableMarker.makeDraggable(imageView2,barbarian,exitedHeroes3);
+            Barbarian barbarian = new Barbarian(imageView2);
+            DraggableMarker.makeDraggable(imageView2, barbarian, exitedHeroes3);
             counter3++;
         }
     }
@@ -201,7 +206,7 @@ public class MapThreePageController implements Initializable {
     void dragonImage(MouseEvent event) {
         if (counter4 < dragon) {
             imageView4 = new ImageView(new Image(this.getClass().getResource("images/infoScreen_dragon.png").toString()));
-            arrow=new ImageView(new Image((this.getClass().getResource("images/flame-fire-clip-art-flame-transparent-png-clip-art-image-d1dfa52a023e5c1c118abbe1bb626704.png").toString())));
+            arrow = new ImageView(new Image((this.getClass().getResource("images/flame-fire-clip-art-flame-transparent-png-clip-art-image-d1dfa52a023e5c1c118abbe1bb626704.png").toString())));
             imageView4.setLayoutX(851);
             imageView4.setLayoutY(271);
             imageView4.setFitWidth(dragonImage.getFitWidth());
@@ -211,7 +216,7 @@ public class MapThreePageController implements Initializable {
             arrow.setVisible(false);
             gameGround3.getChildren().add(imageView4);
             gameGround3.getChildren().add(arrow);
-            Dragon dragon = new Dragon(imageView4,arrow);
+            Dragon dragon = new Dragon(imageView4, arrow);
             DraggableMarker.makeDraggable(imageView4, dragon, exitedHeroes3);
             counter4++;
         }
@@ -228,11 +233,12 @@ public class MapThreePageController implements Initializable {
             imageView5.setFitWidth(valkyrieImage.getFitWidth());
             imageView5.setFitHeight(valkyrieImage.getFitHeight());
             gameGround3.getChildren().add(imageView5);
-            Valkyrie valkyrie=new Valkyrie(imageView5);
-            DraggableMarker.makeDraggable(imageView5,valkyrie,exitedHeroes3);
+            Valkyrie valkyrie = new Valkyrie(imageView5);
+            DraggableMarker.makeDraggable(imageView5, valkyrie, exitedHeroes3);
             counter5++;
         }
     }
+
     @FXML
     void logoutImage(MouseEvent event) throws IOException {
         Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("player-page.fxml")));
@@ -285,9 +291,11 @@ public class MapThreePageController implements Initializable {
     }
 
 
-        @Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        bom=new ImageView(new Image(this.getClass().getResource("images/machupicchu-imports-s-a-c-explosion-bomb-pyrotechnics-euclidean-vector-vector-explosion-f2ea07fc28b0d7dde4808833e2711374.png").toString()));
+        winPane.setVisible(false);
+        losePane.setVisible(false);
+        bom = new ImageView(new Image(this.getClass().getResource("images/machupicchu-imports-s-a-c-explosion-bomb-pyrotechnics-euclidean-vector-vector-explosion-f2ea07fc28b0d7dde4808833e2711374.png").toString()));
 
         if (LoginPageController.loginPlayer.getPlayerLevel() >= 1 && LoginPageController.loginPlayer.getPlayerLevel() <= 3) {
 
@@ -305,7 +313,7 @@ public class MapThreePageController implements Initializable {
             mapController.addCommonBuilding_g3(g3_castle3);
             mapController.addCommonBuilding_g3(g3_castle4);
 
-            mapController.addDefensiveBuilding_g3(g3_bom1,bom);
+            mapController.addDefensiveBuilding_g3(g3_bom1, bom);
 
 
         } else {
@@ -324,9 +332,9 @@ public class MapThreePageController implements Initializable {
             mapController.addCommonBuilding_g3(g3_castle3);
             mapController.addCommonBuilding_g3(g3_castle4);
 
-            mapController.addDefensiveBuilding_g3(g3_bom1,bom);
-            mapController.addDefensiveBuilding_g3(g3_bom2,bom);
-            mapController.addDefensiveBuilding_g3(g3_bom3,bom);
+            mapController.addDefensiveBuilding_g3(g3_bom1, bom);
+            mapController.addDefensiveBuilding_g3(g3_bom2, bom);
+            mapController.addDefensiveBuilding_g3(g3_bom3, bom);
         }
         setBom();
         Timeline t3 = new Timeline();
@@ -337,15 +345,15 @@ public class MapThreePageController implements Initializable {
                         for (Hero h : exitedHeroes3) {
                             if (h instanceof Archer) {
                                 if (!h.isAttacking() && h.isWalking()) {
-                                    gameController.shoot(gameGround3, h, MapController.buildings_g3,3);
+                                    gameController.shoot(gameGround3, h, MapController.buildings_g3, 3);
                                 }
 
                             } else if (h instanceof Dragon) {
-                                gameController.fire(gameGround3, h, MapController.buildings_g3,3);
+                                gameController.fire(gameGround3, h, MapController.buildings_g3, 3);
                             } else {
                                 if (!h.isAttacking() && h.isWalking()) {
                                     try {
-                                        gameController.walk(gameGround3, h, MapController.buildings_g3,3);
+                                        gameController.walk(gameGround3, h, MapController.buildings_g3, 3);
                                     } catch (InterruptedException ex) {
                                         ex.printStackTrace();
                                     }
@@ -362,43 +370,45 @@ public class MapThreePageController implements Initializable {
         t33.setCycleCount(Timeline.INDEFINITE);
         t33.getKeyFrames().add(new KeyFrame(Duration.seconds(1.5),
                 (ActionEvent e) -> {
-                    if (MapController.buildings_g3.size()==0)
-                    {
+                    if (MapController.buildings_g3.size() == 0) {
                         t3.stop();
                         System.out.println("win");
                         //gameGround1.getScene().getWindow().hide();
-                        mapImage3.setOnMouseClicked(event->{
-                            Parent parent = null;
-                            try {
-                                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("win-page.fxml")));
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            stage.setTitle("WinPage");
-                            Scene scene = new Scene(parent);
-                            stage.setScene(scene);
-                            stage.show();});
+//                        mapImage3.setOnMouseClicked(event -> {
+//                            Parent parent = null;
+//                            try {
+//                                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("win-page.fxml")));
+//                            } catch (IOException ex) {
+//                                ex.printStackTrace();
+//                            }
+//                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                            stage.setTitle("WinPage");
+//                            Scene scene = new Scene(parent);
+//                            stage.setScene(scene);
+//                            stage.show();
+//                        });
+                        winPane.setVisible(true);
                         t33.pause();
 
 
                     }
-                    if (PlayerPageController.entryHeroes==0)
-                    {
+                    if (PlayerPageController.entryHeroes == 0) {
                         t3.stop();
                         System.out.println("lose");
-                        mapImage3.setOnMouseClicked(event->{
-                            Parent parent = null;
-                            try {
-                                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("loss-page.fxml")));
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            stage.setTitle("LossPage");
-                            Scene scene = new Scene(parent);
-                            stage.setScene(scene);
-                            stage.show();});
+//                        mapImage3.setOnMouseClicked(event -> {
+//                            Parent parent = null;
+//                            try {
+//                                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("loss-page.fxml")));
+//                            } catch (IOException ex) {
+//                                ex.printStackTrace();
+//                            }
+//                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                            stage.setTitle("LossPage");
+//                            Scene scene = new Scene(parent);
+//                            stage.setScene(scene);
+//                            stage.show();
+//                        });
+                        losePane.setVisible(true);
                         t33.pause();
                     }
                 }
