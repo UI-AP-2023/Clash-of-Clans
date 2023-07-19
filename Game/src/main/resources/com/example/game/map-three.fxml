@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="gameGround3" prefHeight="600.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.MapThreePageController">
    <children>
@@ -106,5 +108,23 @@
             <Image url="@images/5bbfbdc3ba1cc-fbcfc94eb3f5541e4aa05fe48554bfb7.png" />
          </image>
       </ImageView>
+      <Pane fx:id="winPane" layoutX="-1.0" layoutY="259.0" opacity="0.79" prefHeight="202.0" prefWidth="993.0" style="-fx-background-color: #ffffff;" visible="false">
+         <children>
+            <Label alignment="CENTER" layoutX="293.0" layoutY="56.0" prefHeight="91.0" prefWidth="409.0" text="You won the game!" textFill="#ff5e00">
+               <font>
+                  <Font name="Britannic Bold" size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="losePane" layoutY="259.0" opacity="0.79" prefHeight="202.0" prefWidth="994.0" style="-fx-background-color: #ffffff;" visible="false">
+         <children>
+            <Label alignment="CENTER" layoutX="293.0" layoutY="56.0" prefHeight="91.0" prefWidth="409.0" text="You lost the game!" textFill="#ff8700">
+               <font>
+                  <Font name="Britannic Bold" size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -108,6 +108,11 @@ public class MapOnePageController implements Initializable {
     @FXML
     private ImageView smoke12;
 
+    @FXML
+    private Pane winPane;
+
+    @FXML
+    private Pane losePane;
     //------------------------------------------------------------------------------------------------------------------
     private ImageView imageView1;
     private ImageView imageView2;
@@ -295,6 +300,8 @@ public class MapOnePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        winPane.setVisible(false);
+        losePane.setVisible(false);
         smoke = new ImageView(new Image(this.getClass().getResource("images/smoke-clip-art-black-fume-png-clip-art-image-12a8e78b3278d04765b917cab1ff1858.png").toString()));
         if (LoginPageController.loginPlayer.getPlayerLevel() >= 1 && LoginPageController.loginPlayer.getPlayerLevel() <= 3) {
 
@@ -388,19 +395,20 @@ public class MapOnePageController implements Initializable {
                     if (MapController.buildings_g1.size() == 0) {
                         t.stop();
                         System.out.println("win");
-                        mapImage1.setOnMouseClicked(event -> {
-                            Parent parent = null;
-                            try {
-                                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("win-page.fxml")));
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            stage.setTitle("WinPage");
-                            Scene scene = new Scene(parent);
-                            stage.setScene(scene);
-                            stage.show();
-                        });
+//                        mapImage1.setOnMouseClicked(event -> {
+//                            Parent parent = null;
+//                            try {
+//                                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("win-page.fxml")));
+//                            } catch (IOException ex) {
+//                                ex.printStackTrace();
+//                            }
+//                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                            stage.setTitle("WinPage");
+//                            Scene scene = new Scene(parent);
+//                            stage.setScene(scene);
+//                            stage.show();
+//                        });
+                        winPane.setVisible(true);
                         t2.pause();
 
 
@@ -409,19 +417,20 @@ public class MapOnePageController implements Initializable {
                         t.stop();
                         System.out.println("lose");
 
-                        mapImage1.setOnMouseClicked(event -> {
-                            Parent parent = null;
-                            try {
-                                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("loss-page.fxml")));
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            stage.setTitle("LossPage");
-                            Scene scene = new Scene(parent);
-                            stage.setScene(scene);
-                            stage.show();
-                        });
+//                        mapImage1.setOnMouseClicked(event -> {
+//                            Parent parent = null;
+//                            try {
+//                                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("loss-page.fxml")));
+//                            } catch (IOException ex) {
+//                                ex.printStackTrace();
+//                            }
+//                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                            stage.setTitle("LossPage");
+//                            Scene scene = new Scene(parent);
+//                            stage.setScene(scene);
+//                            stage.show();
+//                        });
+                        losePane.setVisible(true);
                         t2.pause();
                     }
                 }
